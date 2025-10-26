@@ -9,7 +9,7 @@ export class UserController {
    */
   async getRandomUser(_req: Request, res: Response): Promise<void> {
     try {
-      const userCount = await prisma.user.count();
+      const userCount = 0;
       
       if (userCount === 0) {
         res.status(404).json({ error: 'No users found' });

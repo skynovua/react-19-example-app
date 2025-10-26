@@ -1,9 +1,11 @@
-import { createFileRoute } from '@tanstack/react-router';
 import { Suspense, useState, useTransition } from 'react';
+import { createFileRoute } from '@tanstack/react-router';
+import { ErrorBoundary } from "react-error-boundary";
+
+import { resetUserDataPromise } from '../hooks';
 import { UserProfile } from '../components/UserProfile';
 import { LoadingFallback } from '../components/LoadingFallback';
-import { ErrorBoundary } from '../components/ErrorBoundary';
-import { resetUserDataPromise } from '../hooks';
+import { ErrorFallback } from '../components/ErrorFallback';
 
 export const Route = createFileRoute('/')({
   component: HomeComponent,
@@ -43,7 +45,7 @@ function HomeComponent() {
         </button>
       </div>
 
-      <ErrorBoundary>
+      <ErrorBoundary fallback={<ErrorFallback />}>
         <Suspense fallback={<LoadingFallback />}>
           <UserProfile key={key} />
         </Suspense>
