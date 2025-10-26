@@ -1,271 +1,273 @@
-# React 19 Demo with Prisma & SQLite
+# React 19 Example App with Prisma & SQLite
 
-Сучасний React додаток з використанням найновіших технологій.
+A modern React application showcasing the latest technologies and features.
 
-## 🚀 Технології
+## 🚀 Technologies
 
-- **React 19** (Canary) - use hook, useTransition, Suspense
-- **TypeScript** - Строга типізація
-- **Vite 7** (Rolldown) - Швидкий білдер
-- **TanStack Router** - Файлова маршрутизація
-- **Tailwind CSS v4** - Утилітарні стилі
-- **Prisma** - ORM для роботи з базою даних
-- **SQLite** - Локальна база даних
-- **React Compiler** - Автоматична оптимізація
+- **React 19** - Latest features including `use` hook, `useTransition`, and Suspense
+- **TypeScript** - Strong typing and enhanced developer experience
+- **Vite 7** (Rolldown) - Fast build tool and development server
+- **TanStack Router** - File-based routing system
+- **Tailwind CSS v4** - Utility-first CSS framework
+- **Prisma** - Next-generation ORM for database management
+- **SQLite** - Embedded database for local development
+- **React Compiler** - Automatic optimization and memoization
+- **Express** - Backend API server with middleware support
 
-## 📦 Встановлення
+## 📦 Installation
 
 ```bash
+# Install dependencies
 pnpm install
-```
 
-## 🗄️ База даних
-
-### Ініціалізація та міграції
-
-```bash
-# Застосувати міграції
+# Apply database migrations
 npx prisma migrate dev
 
-# Заповнити базу даних тестовими даними
+# Seed database with sample data
 pnpm db:seed
-
-# Відкрити Prisma Studio (GUI для перегляду даних)
-pnpm db:studio
 ```
 
-### Структура бази даних
+## 🗄️ Database
 
-**User** - Користувачі
-- id, name, email, avatar, role
-- bio, location, joinedDate
-- website, github, twitter
+### Database Structure
 
-**Post** - Пости
-- id, title, excerpt, content
-- publishedDate, readTime, tags
-- authorId (зв'язок з User)
+**User Table** - User profiles
+- `id`, `name`, `email`, `avatar`, `role`
+- `bio`, `location`, `joinedDate`
+- `website`, `github`, `twitter`
 
-## 🛠️ Скрипти
+**Post Table** - Blog posts
+- `id`, `title`, `excerpt`, `content`
+- `publishedDate`, `readTime`, `tags`
+- `authorId` (relation to User)
+
+### Database Commands
+
+```bash
+# Apply migrations
+npx prisma migrate dev
+
+# Seed database with test data
+pnpm db:seed
+
+# Open Prisma Studio (GUI for data viewing)
+pnpm db:studio
+
+# Push schema changes without migrations
+pnpm db:push
+
+# Generate Prisma Client
+pnpm prisma:generate
+```
+
+## 🛠️ Available Scripts
 
 ### Development
 ```bash
-pnpm dev          # Запустити Vite dev server
-pnpm dev:server   # Запустити API server з hot reload
-pnpm dev:all      # Запустити і frontend і backend одночасно
+pnpm dev          # Start Vite development server
+pnpm dev:server   # Start API server with hot reload
+pnpm dev:all      # Start both frontend and backend concurrently
 ```
 
 ### Production
 ```bash
-pnpm build              # Build frontend
-pnpm build:server       # Build server
+pnpm build              # Build frontend for production
+pnpm build:server       # Build server for production
 pnpm start              # Start production server
 pnpm preview            # Preview production build
 ```
 
 ### Database
 ```bash
-pnpm db:seed            # Заповнити БД даними (Faker)
-pnpm db:push            # Синхронізувати схему з БД
-pnpm db:migrate         # Застосувати міграції (production)
-pnpm db:studio          # Відкрити Prisma Studio
-pnpm prisma:generate    # Згенерувати Prisma Client
+pnpm db:seed            # Seed database with Faker data
+pnpm db:push            # Push schema changes to database
+pnpm db:migrate         # Apply migrations (production)
+pnpm db:studio          # Open Prisma Studio
+pnpm prisma:generate    # Generate Prisma Client
 ```
 
 ### Code Quality
 ```bash
-pnpm lint         # ESLint перевірка
+pnpm lint         # Run ESLint checks
 ```
 
-## ⚡ Швидкий старт
-
-1. **Клонувати та встановити**
-
-# Попередній перегляд білду
-pnpm preview
-
-# База даних
-pnpm db:seed    # Заповнити БД даними
-pnpm db:push    # Синхронізувати схему без міграцій
-pnpm db:studio  # Відкрити Prisma Studio
-```
-
-## ⚡ Швидкий старт
+## ⚡ Quick Start
 
 ```bash
-# 1. Встановити залежності
+# 1. Install dependencies
 pnpm install
 
-# 2. Застосувати міграції та заповнити БД
+# 2. Apply migrations and seed database
 npx prisma migrate dev
 pnpm db:seed
 
-# 3. Запустити dev сервери (фронтенд + API)
+# 3. Start development servers (frontend + API)
 pnpm dev:all
 ```
 
-Додаток буде доступний:
-- Фронтенд: http://localhost:5173 (або 5174)
-- API: http://localhost:3001
+The application will be available at:
+- **Frontend**: http://localhost:5173 (or 5174)
+- **API**: http://localhost:3001
 
-## 🎯 Особливості
+## 🎯 Key Features
 
 ### React 19 Features
-- **use hook** - Розгортання промісів у компонентах
-- **useTransition** - Плавні переходи при завантаженні
-- **Suspense** - Декларативні стани завантаження
-- **Error Boundaries** - Обробка помилок
+- **use hook** - Unwrap promises directly in components
+- **useTransition** - Smooth transitions during loading states
+- **Suspense** - Declarative loading states
+- **Error Boundaries** - Comprehensive error handling
+- **React Compiler** - Automatic memoization and optimization
 
-### Dark Mode
-- Автоматичне визначення системної теми
-- Збереження у localStorage
-- Перемикач у хедері
+### UI/UX Features
+- **Dark Mode** - System theme detection with localStorage persistence
+- **Responsive Design** - Mobile-first approach with Tailwind CSS
+- **Loading States** - Smooth transitions and skeleton loaders
+- **Error Handling** - User-friendly error messages and fallbacks
 
-### Маршрутизація
-- `/` - Головна сторінка з профілями користувачів
-- `/about` - Про додаток
-- `/posts/:postId` - Деталі посту
+### Routing
+- `/` - Home page with user profiles
+- `/about` - About the application
+- `/posts` - Posts listing page
+- `/posts/:postId` - Individual post details
 
-## 📁 Структура проекту
+## 📁 Project Structure
 
 ```
 src/
-├── api/           # API модуль
-│   ├── client/    # HTTP клієнт та сервіси (браузер)
+├── api/           # API module
+│   ├── client/    # HTTP client and services (browser)
 │   │   ├── httpClient.ts
 │   │   ├── userService.ts
 │   │   └── postService.ts
-│   ├── server/    # Контролери та роути (Node.js)
+│   ├── server/    # Controllers and routes (Node.js)
 │   │   ├── userController.ts
 │   │   ├── postController.ts
 │   │   └── routes.ts
-│   ├── types/     # Спільні типи API
-│   │   └── index.ts
-│   └── README.md  # API документація
-├── components/    # React компоненти
+│   └── types/     # Shared API types
+│       └── index.ts
+├── components/    # React components
 │   ├── ErrorBoundary.tsx
 │   ├── LoadingFallback.tsx
 │   └── UserProfile.tsx
-├── data/          # Mock дані (для seed)
-│   └── mockData.json
-├── hooks/         # React хуки
+├── contexts/      # React contexts
+│   ├── ThemeContext.tsx
+│   ├── useTheme.ts
+│   └── index.ts
+├── hooks/         # Custom React hooks
 │   ├── useUserData.ts
 │   ├── usePostData.ts
 │   └── index.ts
-├── lib/           # Утиліти
+├── lib/           # Utilities and configurations
 │   └── prisma.ts
-├── routes/        # TanStack Router сторінки
+├── middleware/    # Server middleware
+│   ├── errorHandler.ts
+│   └── rateLimiter.ts
+├── routes/        # TanStack Router pages
 │   ├── __root.tsx
 │   ├── index.tsx
 │   ├── about.tsx
 │   ├── posts.tsx
 │   └── posts.$postId.tsx
-└── types.ts       # TypeScript типи
+└── types.ts       # TypeScript type definitions
 
 prisma/
-├── schema.prisma  # Prisma схема
-├── seed.ts        # Скрипт для заповнення БД
-└── migrations/    # Міграції бази даних
+├── schema.prisma  # Database schema
+├── seed.ts        # Database seeding script
+└── migrations/    # Database migrations
 
-server.ts          # Express API сервер
+server.ts          # Express API server
 ```
 
-## 🏗️ API Архітектура
+## 🏗️ API Architecture
 
-Проєкт використовує **Service-Oriented Architecture** з чітким розділенням:
+This project uses **Service-Oriented Architecture** with clear separation of concerns:
 
-- **Client Services** (`api/client/`) - HTTP запити для браузера
-- **Server Controllers** (`api/server/`) - Бізнес-логіка та БД
-- **Shared Types** (`api/types/`) - Спільні типи TypeScript
+- **Client Services** (`api/client/`) - HTTP requests for browser environment
+- **Server Controllers** (`api/server/`) - Business logic and database operations  
+- **Shared Types** (`api/types/`) - Common TypeScript interfaces
 
-Детальна документація: [`src/api/README.md`](src/api/README.md)
+### API Endpoints
+
+```
+GET /api/users/random    # Get random user with posts
+GET /api/posts           # Get all posts
+GET /api/posts/:id       # Get post by ID
+GET /health              # Health check endpoint
+```
 
 ## 🔧 Prisma Commands
 
 ```bash
-# Створити нову міграцію
+# Create new migration
 npx prisma migrate dev --name migration_name
 
-# Застосувати міграції у продакшн
+# Apply migrations in production
 npx prisma migrate deploy
 
-# Згенерувати Prisma Client
+# Generate Prisma Client
 npx prisma generate
 
-# Відкрити Prisma Studio
+# Open Prisma Studio
 npx prisma studio
 
-# Синхронізувати схему
+# Push schema changes
 npx prisma db push
 
-# Скинути базу даних
+# Reset database
 npx prisma migrate reset
+
+# View database schema
+npx prisma db pull
 ```
 
-## 📝 Приклади використання
+## 📝 Usage Examples
 
-### API Services (прямі виклики)
+### API Services (Direct Calls)
 
 ```typescript
 import { userService, postService } from './api/client';
 
-// Отримати випадкового користувача
+// Get random user with posts
 const userData = await userService.getRandomUser();
 
-// Отримати пост за ID
+// Get post by ID
 const post = await postService.getPostById('1');
 
-// Отримати всі пости
+// Get all posts
 const posts = await postService.getAllPosts();
 ```
 
-### React Hooks з кешуванням
+### React Hooks with Caching
 
 ```typescript
 import { use } from 'react';
 import { getUserDataPromise, getPostPromise, resetUserDataPromise } from './hooks';
 
-// У React компоненті з Suspense
+// In React component with Suspense
 function UserProfile() {
   const { user, posts } = use(getUserDataPromise());
   return <div>{user.name}</div>;
 }
 
-// Скинути кеш для нового запиту
+// Reset cache for new request
 function handleRefresh() {
   resetUserDataPromise();
-  // компонент автоматично перерендериться
+  // Component will automatically re-render
 }
 ```
 
-### API Endpoints
-
-```
-GET /api/users/random    - Отримати випадкового користувача з постами
-GET /api/posts           - Отримати всі пости
-GET /api/posts/:id       - Отримати пост за ID
-```
-
-### Отримання даних з API
-
-```typescript
-// В браузері (React компоненти)
-const response = await fetch('http://localhost:3001/api/users/random');
-const data = await response.json();
-```
-
-### Робота з Prisma (server.ts)
+### Working with Prisma (server.ts)
 
 ```typescript
 import { prisma } from './src/lib/prisma';
 
-// Отримати пост з автором
+// Get post with author
 const post = await prisma.post.findUnique({
   where: { id: 1 },
   include: { author: true },
 });
 
-// Отримати користувача з його постами
+// Get user with their posts
 const user = await prisma.user.findFirst({
   include: {
     posts: {
@@ -275,54 +277,120 @@ const user = await prisma.user.findFirst({
 });
 ```
 
-### Використання use hook
+### Using React 19 `use` Hook
 
 ```typescript
 import { use } from 'react';
 
-function Component({ dataPromise }) {
+function DataComponent({ dataPromise }) {
   const data = use(dataPromise);
   return <div>{data.name}</div>;
+}
+
+// With Suspense boundary
+function App() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <DataComponent dataPromise={getUserData()} />
+    </Suspense>
+  );
 }
 ```
 
 ## 🎨 Customization
 
-Seed дані генеруються автоматично за допомогою `@faker-js/faker`. Редагуйте `prisma/seed.ts` для налаштування кількості користувачів та постів:
+### Database Seeding
+
+Seed data is automatically generated using `@faker-js/faker`. Edit `prisma/seed.ts` to customize the number of users and posts:
 
 ```typescript
-const userCount = 10;          // Кількість користувачів
-const postsPerUser = 2;        // Постів на користувача
+const userCount = 10;          // Number of users to generate
+const postsPerUser = 2;        // Posts per user
 ```
 
-Потім запустіть:
+Then run:
 
 ```bash
 pnpm db:seed
 ```
 
----
+### Styling and Theming
+
+The application uses **Tailwind CSS v4** with a custom theme configuration. You can customize:
+
+- Colors and design tokens in `tailwind config`
+- Dark/light mode preferences in `ThemeContext`
+- Component styling in individual `.tsx` files
 
 ## 🚀 Production Ready Features
 
-### Безпека
-- ✅ Rate limiting (express-rate-limit)
-- ✅ CORS configured
-- ✅ Error handling middleware
-- ✅ Input validation готовність
+### Security
+- ✅ **Rate Limiting** - Express rate limiter middleware
+- ✅ **CORS Configuration** - Secure cross-origin requests
+- ✅ **Error Handling** - Comprehensive error middleware
+- ✅ **Input Validation** - Type-safe API endpoints
 
 ### Performance
-- ✅ Database indexes на часто використовуваних полях
-- ✅ Умовне логування (production vs development)
-- ✅ Graceful shutdown
-- ✅ Connection pooling
+- ✅ **Database Indexing** - Optimized queries on frequently accessed fields
+- ✅ **Environment Logging** - Conditional logging (production vs development)
+- ✅ **Graceful Shutdown** - Proper cleanup on server termination
+- ✅ **Connection Pooling** - Efficient database connection management
 
-### Monitoring
-- ✅ Health check endpoint з DB verification
-- ✅ Environment-based configuration
-- ✅ Structured error responses
+### Monitoring & Observability
+- ✅ **Health Check Endpoint** - `/health` with database verification
+- ✅ **Environment Configuration** - Flexible deployment settings
+- ✅ **Structured Error Responses** - Consistent API error format
+- ✅ **Request/Response Logging** - Detailed API interaction logs
 
-Детальніше: [`SCALABILITY.md`](SCALABILITY.md)
+## 🧪 Testing
+
+```bash
+# Run tests (when implemented)
+pnpm test
+
+# Run tests in watch mode
+pnpm test:watch
+
+# Generate coverage report
+pnpm test:coverage
+```
+
+## 🔧 Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+# Database
+DATABASE_URL="file:./dev.db"
+
+# Server
+PORT=3001
+NODE_ENV=development
+
+# Optional: Add other environment-specific variables
+```
+
+## 📚 Learn More
+
+- [React 19 Documentation](https://react.dev/blog/2024/12/05/react-19)
+- [Prisma Documentation](https://www.prisma.io/docs)
+- [TanStack Router](https://tanstack.com/router)
+- [Tailwind CSS v4](https://tailwindcss.com/docs)
+- [Vite Documentation](https://vitejs.dev/)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
+
+**Built with ❤️ using React 19 and modern web technologies**
 
