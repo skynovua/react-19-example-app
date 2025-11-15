@@ -1,11 +1,12 @@
-import { Suspense, useState, useTransition } from 'react';
+import { useState } from 'react';
 import { createFileRoute } from '@tanstack/react-router';
-import { ErrorBoundary } from "react-error-boundary";
+// import { Suspense, useTransition } from 'react';
+// import { ErrorBoundary } from "react-error-boundary";
 
 import { resetUserDataPromise } from '../hooks';
 import { UserProfile } from '../components/UserProfile';
-import { LoadingFallback } from '../components/LoadingFallback';
-import { ErrorFallback } from '../components/ErrorFallback';
+// import { LoadingFallback } from '../components/LoadingFallback';
+// import { ErrorFallback } from '../components/ErrorFallback';
 
 export const Route = createFileRoute('/')({
   component: HomeComponent,
@@ -13,13 +14,13 @@ export const Route = createFileRoute('/')({
 
 function HomeComponent() {
   const [key, setKey] = useState<number>(0);
-  const [isPending, startTransition] = useTransition();
+  // const [isPending, startTransition] = useTransition();
 
   const handleFetchRandomUser = (): void => {
-    startTransition(() => {
+    // startTransition(() => {
       resetUserDataPromise();
       setKey(prev => prev + 1);
-    });
+    // });
   };
 
   return (
@@ -28,10 +29,10 @@ function HomeComponent() {
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white">User Profiles</h2>
         <button
           onClick={handleFetchRandomUser}
-          disabled={isPending}
+          // disabled={isPending}
           className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200 disabled:bg-indigo-400 disabled:cursor-not-allowed flex items-center gap-2"
         >
-          {isPending ? (
+          {/* {isPending ? (
             <>
               <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -41,15 +42,16 @@ function HomeComponent() {
             </>
           ) : (
             'Fetch Random User'
-          )}
+          )} */}
+          Fetch Random User
         </button>
       </div>
 
-      <ErrorBoundary fallback={<ErrorFallback />}>
-        <Suspense fallback={<LoadingFallback />}>
+      {/* <ErrorBoundary fallback={<ErrorFallback />}>
+        <Suspense fallback={<LoadingFallback />}> */}
           <UserProfile key={key} />
-        </Suspense>
-      </ErrorBoundary>
+        {/* </Suspense>
+      </ErrorBoundary> */}
     </div>
   );
 }

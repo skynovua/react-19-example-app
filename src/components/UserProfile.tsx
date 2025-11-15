@@ -1,9 +1,35 @@
-import { use } from 'react';
 import { Link } from '@tanstack/react-router';
+import { useState, useEffect } from 'react';
+// import { use } from 'react';
 import { getUserDataPromise } from '../hooks';
+import type { UserWithPostsResponse } from '../api';
 
 export function UserProfile() {
-  const { user, posts } = use(getUserDataPromise());
+  // const { user, posts } = use(getUserDataPromise());
+  
+  const [user, setUser] = useState<UserWithPostsResponse['user'] | null>(null);
+  const [posts, setPosts] = useState<UserWithPostsResponse['posts']>([]);
+
+  useEffect(() => {
+    let isMounted = true;
+    getUserDataPromise().then(data => {
+      if (isMounted) {
+        setUser(data.user);
+        setPosts(data.posts);
+      }
+    });
+    return () => {
+      isMounted = false;
+    };
+  }, []);  
+
+  if (!user) {
+    return (
+      <div className="text-center py-20">
+        <div className="animate-pulse text-gray-500 dark:text-gray-400">Loading user profile...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-4xl mx-auto p-6">
