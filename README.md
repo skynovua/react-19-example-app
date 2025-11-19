@@ -18,13 +18,13 @@ A modern React application showcasing the latest technologies and features.
 
 ```bash
 # Install dependencies
-pnpm install
+bun install
 
 # Apply database migrations
 npx prisma migrate dev
 
 # Seed database with sample data
-pnpm db:seed
+bun db:seed
 ```
 
 ## 🗄️ Database
@@ -48,61 +48,61 @@ pnpm db:seed
 npx prisma migrate dev
 
 # Seed database with test data
-pnpm db:seed
+bun db:seed
 
 # Open Prisma Studio (GUI for data viewing)
-pnpm db:studio
+bun db:studio
 
 # Push schema changes without migrations
-pnpm db:push
+bun db:push
 
 # Generate Prisma Client
-pnpm prisma:generate
+bun prisma:generate
 ```
 
 ## 🛠️ Available Scripts
 
 ### Development
 ```bash
-pnpm dev          # Start Vite development server
-pnpm dev:server   # Start API server with hot reload
-pnpm dev:all      # Start both frontend and backend concurrently
+bun dev          # Start Vite development server
+bun dev:server   # Start API server with hot reload
+bun dev:all      # Start both frontend and backend concurrently
 ```
 
 ### Production
 ```bash
-pnpm build              # Build frontend for production
-pnpm build:server       # Build server for production
-pnpm start              # Start production server
-pnpm preview            # Preview production build
+bun build              # Build frontend for production
+bun build:server       # Build server for production
+bun start              # Start production server
+bun preview            # Preview production build
 ```
 
 ### Database
 ```bash
-pnpm db:seed            # Seed database with Faker data
-pnpm db:push            # Push schema changes to database
-pnpm db:migrate         # Apply migrations (production)
-pnpm db:studio          # Open Prisma Studio
-pnpm prisma:generate    # Generate Prisma Client
+bun db:seed            # Seed database with Faker data
+bun db:push            # Push schema changes to database
+bun db:migrate         # Apply migrations (production)
+bun db:studio          # Open Prisma Studio
+bun prisma:generate    # Generate Prisma Client
 ```
 
 ### Code Quality
 ```bash
-pnpm lint         # Run ESLint checks
+bun lint         # Run ESLint checks
 ```
 
 ## ⚡ Quick Start
 
 ```bash
 # 1. Install dependencies
-pnpm install
+bun install
 
 # 2. Apply migrations and seed database
 npx prisma migrate dev
-pnpm db:seed
+bun db:seed
 
 # 3. Start development servers (frontend + API)
-pnpm dev:all
+bun dev:all
 ```
 
 The application will be available at:
@@ -311,7 +311,7 @@ const postsPerUser = 2;        // Posts per user
 Then run:
 
 ```bash
-pnpm db:seed
+bun db:seed
 ```
 
 ### Styling and Theming
@@ -346,13 +346,13 @@ The application uses **Tailwind CSS v4** with a custom theme configuration. You 
 
 ```bash
 # Run tests (when implemented)
-pnpm test
+bun test
 
 # Run tests in watch mode
-pnpm test:watch
+bun test:watch
 
 # Generate coverage report
-pnpm test:coverage
+bun test:coverage
 ```
 
 ## 🔧 Environment Variables
